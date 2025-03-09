@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.de4de79e.css",
+    "main.js": "/static/js/main.5a0d4782.js",
+    "static/media/Health_Monitor-removebg-preview.png": "/static/media/Health_Monitor-removebg-preview.dd94c56542b29b6b8871.png",
+    "static/media/hm5.avif": "/static/media/hm5.4273ed479404f6e97c7c.avif",
+    "index.html": "/index.html",
+    "main.de4de79e.css.map": "/static/css/main.de4de79e.css.map",
+    "main.5a0d4782.js.map": "/static/js/main.5a0d4782.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.de4de79e.css",
+    "static/js/main.5a0d4782.js"
+  ]
+}

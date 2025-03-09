@@ -23,9 +23,10 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: process.env.CLIENT_URL || ["http://localhost:3000", "http://localhost:3001"],
+    origin: "https://health-monitor-front-end.onrender.com",
     credentials: true
 }));
+app.options("*", cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));

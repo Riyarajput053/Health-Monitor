@@ -2,7 +2,9 @@ const mongoose = require("mongoose")
 
 async function DataBase() {
     try {
-        await mongoose.connect("mongodb+srv://riyarrrajput053:<db_password>@cluster0.x9ecs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+        await mongoose.connect("mongodb+srv://riyarrrajput053:iVIR5oQeR8TcmaLD@cluster0.x9ecs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",{
+            useNewUrlParser: true,
+            useUnifiedTopology: true})
         .then((value) => {
             console.log("Database connected");
         })

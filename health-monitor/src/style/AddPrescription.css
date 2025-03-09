@@ -1,0 +1,15 @@
+.HomeSection {
+    height: 100vh;
+    width: 100%;
+    background-color: antiquewhite;
+
+}
+
+.innerHomeSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap  ;
+    
+}

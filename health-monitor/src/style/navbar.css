@@ -1,0 +1,49 @@
+
+.navbar{
+    background-color: #6196A6;
+}
+
+hover:hover{
+    background-color: #008B8B
+}
+.navbar-brand {
+    color: #fff;
+ 
+}
+
+
+.nav-item1:hover{
+    background-color: #008B8B;
+}
+.nav-item2:hover{
+    background-color: #008B8B;
+}
+.nav-item3:hover{
+    background-color: #008B8B;
+}
+.nav-item4:hover{
+    background-color: #008B8B;
+}
+.nav-item5:hover{
+    background-color: #008B8B;
+}
+.nav-item6:hover{
+    background-color: #008B8B;
+}
+.nav-item7:hover{
+    background-color: #008B8B;
+}
+.icon.hover{
+    text-decoration: none;
+   
+ }
+.mymodal{
+    margin-left: 2%;
+    margin-top: 5%;
+    max-width: 400px;
+   
+  }
+  .modal-body{
+    background-color: #7fc5ca;
+  }
+  

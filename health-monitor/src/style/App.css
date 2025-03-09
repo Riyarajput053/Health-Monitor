@@ -1,0 +1,75 @@
+*{
+    box-sizing: border-box;
+}
+form {
+    
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+ 
+  form div {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  
+  span {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+  }
+  
+ 
+  button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+  }
+  .form-container {
+    background-image: url('https://www.shutterstock.com/image-photo/medical-examination-healthcare-business-graph-260nw-582412642.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.register-heading {
+    text-align: center;
+  }
+
+  /* Add these styles to your CSS file */
+
+/* login css*/

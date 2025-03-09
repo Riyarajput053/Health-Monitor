@@ -10,6 +10,7 @@ function AddDocNotes() {
   const [docName, setDocName] = useState("");
   const [notes, setNotes] = useState("");
   const [uploadSuccess, setUploadSuccess] = useState(false);
+  const API_URL = process.env.REACT_APP_API_URL;
 
 
 
@@ -27,7 +28,7 @@ function AddDocNotes() {
       const token = localStorage.getItem("token");
       const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
-      const response = await fetch("http://localhost:8000/api/doctor-notes/add", {
+      const response = await fetch(`${API_URL}/api/doctor-notes/add`, {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`,

@@ -13,6 +13,7 @@ const AddMedExpense = () => {
   const [amount, setAmount] = useState("");
   const [condition, setCondition] = useState("");
   const [uploadSuccess, setUploadSuccess] = useState(false);
+  const API_URL = process.env.REACT_APP_API_URL;
 
   const handleFileChange = (e) => {
     setSelectedFile(e.target.files[0]);
@@ -39,7 +40,7 @@ const AddMedExpense = () => {
       const token = localStorage.getItem("token");
       const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
-      const response = await fetch("http://localhost:8000/api/medical-expenses/add", {
+      const response = await fetch(`${API_URL}/api/medical-expenses/add`, {
         method: "POST",
         body: formData,
         credentials: "include",

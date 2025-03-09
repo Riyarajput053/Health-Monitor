@@ -6,6 +6,7 @@ const ViewMedExpense = () => {
     const [bill, setBill] = useState([]);
     const navigate = useNavigate();
 
+    const API_URL = process.env.REACT_APP_API_URL;
 
 
     useEffect(() => {
@@ -17,7 +18,7 @@ const ViewMedExpense = () => {
                     return;
                 }
 
-                const response = await fetch("http://localhost:8000/api/medical-expenses", {
+                const response = await fetch(`${API_URL}/api/medical-expenses`, {
                     method: "GET",
                     headers: {
                         "Authorization": `Bearer ${token}`,  // 🔹 Attach token in request
@@ -62,7 +63,7 @@ const ViewMedExpense = () => {
                 return;
             }
 
-            const response = await fetch(`http://localhost:8000/api/medical-expenses/${id}`, {
+            const response = await fetch(`${API_URL}/api/medical-expenses/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Authorization": `Bearer ${token}`,

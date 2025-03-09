@@ -14,6 +14,7 @@ const Register = () => {
     confirmpassword: "",
     role: "patient", // Directly assigned in formData
   });
+  const API_URL = process.env.REACT_APP_API_URL;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -79,7 +80,7 @@ const Register = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:8000/User/register",
+        `${API_URL}/User/register`,
         {
           method: "POST",
           headers: {

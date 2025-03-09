@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 const ViewDocNotes = () => {
     const [note, setNote] = useState([]);
     const navigate = useNavigate();
+    const API_URL = process.env.REACT_APP_API_URL;
 
 
 
@@ -17,7 +18,7 @@ const ViewDocNotes = () => {
                     return;
                 }
 
-                const response = await fetch("http://localhost:8000/api/doctor-notes", {
+                const response = await fetch(`${API_URL}/api/doctor-notes`, {
                     method: "GET",
                     headers: {
                         "Authorization": `Bearer ${token}`,  // 🔹 Attach token in request
@@ -60,7 +61,7 @@ const ViewDocNotes = () => {
                 return;
             }
 
-            const response = await fetch(`http://localhost:8000/api/doctor-notes/${id}`, {
+            const response = await fetch(`${API_URL}/api/doctor-notes/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Authorization": `Bearer ${token}`,

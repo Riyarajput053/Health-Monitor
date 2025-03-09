@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true); // Prevent flickering due to state reset
 
+  const API_URL = process.env.REACT_APP_API_URL;
   useEffect(() => {
     const authToken = getAuthToken();
 
@@ -37,7 +38,7 @@ export const AuthProvider = ({ children }) => {
 
   const fetchUserFromServer = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/User/me", { withCredentials: true });
+      const response = await axios.get(`${API_URL}/User/me`, { withCredentials: true });
       setUser(response.data);
     } catch (error) {
       console.error("Session expired or user not found:", error);
@@ -47,7 +48,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      await axios.get("http://localhost:8000/User/logout", { withCredentials: true });
+      await axios.get( `${API_URL}/User/logout`, { withCredentials: true });
 
       document.cookie = "authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
       localStorage.removeItem("authToken");
@@ -65,3 +66,5 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
+

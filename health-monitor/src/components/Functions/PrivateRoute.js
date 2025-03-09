@@ -4,11 +4,12 @@ import axios from 'axios';
 
 function PrivateRoute() {
   const [authUser, setAuthUser] = useState(null);
+  const API_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const getAuthenticatedUser = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/User/authuser', { withCredentials: true });
+        const response = await axios.get(`${API_URL}/User/authuser`, { withCredentials: true });
         const { AuthUser } = response.data;
         setAuthUser(AuthUser);
       } catch (error) {

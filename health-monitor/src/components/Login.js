@@ -9,6 +9,7 @@ import { AuthContext } from "./Functions/AuthProvider";
 const LoginForm = () => {
   const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const API_URL = process.env.REACT_APP_API_URL;
 
   // const [email, setEmail] = useState('');
   // const [password, setPassword] = useState('');
@@ -31,7 +32,7 @@ const LoginForm = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:8000/User/login", {
+      const response = await fetch(`${API_URL}/User/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

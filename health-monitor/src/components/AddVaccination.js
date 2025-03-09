@@ -12,6 +12,7 @@ const AddVaccination = () => {
   const [docName, setDocName] = useState("");
   const [condition, setCondition] = useState("");
   const [uploadSuccess, setUploadSuccess] = useState(false);
+  const API_URL = process.env.REACT_APP_API_URL;
 
 
 
@@ -31,7 +32,7 @@ const AddVaccination = () => {
       const token = localStorage.getItem("token");
       const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
-      const response = await fetch("http://localhost:8000/api/vaccinations/add", {
+      const response = await fetch(`${API_URL}/api/vaccinations/add`, {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`,

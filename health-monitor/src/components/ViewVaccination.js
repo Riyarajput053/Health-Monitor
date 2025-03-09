@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 const ViewVaccination = () => {
     const [vaccination, setVaccination] = useState([]);
     const navigate = useNavigate();
+    const API_URL = process.env.REACT_APP_API_URL;
 
 
 
@@ -17,7 +18,7 @@ const ViewVaccination = () => {
                     return;
                 }
 
-                const response = await fetch("http://localhost:8000/api/vaccinations", {
+                const response = await fetch(`${API_URL}/api/vaccinations`, {
                     method: "GET",
                     headers: {
                         "Authorization": `Bearer ${token}`,  // 🔹 Attach token in request
@@ -60,7 +61,7 @@ const ViewVaccination = () => {
                 return;
             }
 
-            const response = await fetch(`http://localhost:8000/api/vaccinations/${id}`, {
+            const response = await fetch(`${API_URL}/api/vaccinations/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Authorization": `Bearer ${token}`,

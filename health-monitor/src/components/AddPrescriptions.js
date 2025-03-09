@@ -12,7 +12,7 @@ function AddPrescriptions() {
   const [description, setDescription] = useState("");
   const [condition, setCondition] = useState("");
   const [uploadSuccess, setUploadSuccess] = useState(false);
-
+  const API_URL = process.env.REACT_APP_API_URL;
   const handleFileChange = (e) => {
     setSelectedFile(e.target.files[0]);
   };
@@ -37,7 +37,7 @@ function AddPrescriptions() {
       const token = localStorage.getItem("token");
       const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
-      const response = await fetch("http://localhost:8000/api/prescriptions/add", {
+      const response = await fetch(`${API_URL}/api/prescriptions/add`, {
         method: "POST",
         body: formData,
         credentials: "include",

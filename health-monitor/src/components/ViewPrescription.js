@@ -6,6 +6,7 @@ const ViewPrescriptions = () => {
     const [prescription, setPrescription] = useState([]);
     const navigate = useNavigate();
 
+    const API_URL = process.env.REACT_APP_API_URL;
 
 
     useEffect(() => {
@@ -17,7 +18,7 @@ const ViewPrescriptions = () => {
                     return;
                 }
 
-                const response = await fetch("http://localhost:8000/api/prescriptions", {
+                const response = await fetch(`${API_URL}/api/prescriptions`, {
                     method: "GET",
                     headers: {
                         "Authorization": `Bearer ${token}`,  // 🔹 Attach token in request
@@ -62,7 +63,7 @@ const ViewPrescriptions = () => {
                 return;
             }
 
-            const response = await fetch(`http://localhost:8000/api/prescriptions/${id}`, {
+            const response = await fetch(`${API_URL}/api/prescriptions/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Authorization": `Bearer ${token}`,

@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "./AuthProvider"; 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
+import {useNavigate} from "react-router-dom"
 
 function Navbar() {
   const { user, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min");
@@ -61,6 +63,8 @@ function Navbar() {
                     onClick={() => { 
                       document.getElementById("sidebarMenu").classList.remove("show");
                       logout();
+                      navigate('/login')
+                      
                     }}
                   >
                     Logout

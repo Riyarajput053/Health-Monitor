@@ -181,7 +181,7 @@ const PatientDashboard = ({ authUser }) => {
                 className="modal-body"
                 style={{ backgroundColor: "#008B8B" }}
               >
-                <div className="row row-cols-2 row-cols-md-3 g-5 m-5">
+                <div className="row row-cols-2 row-cols-md-3 gx-4 gy-4 m-5">
                   <div className="col">
                     <Link
                       to="/addrecords"
@@ -324,7 +324,8 @@ const PatientDashboard = ({ authUser }) => {
             justifyContent: "center",
           }}
         >
-          <div className="row row-cols-1 row-cols-md-3 g-4 mt-5 mb-5">
+          <div className="row row-cols-2 row-cols-md-3 gx-5 gy-4 mt-5 mb-5">
+
             <div className="col">
               <div
                 className="card"
@@ -340,7 +341,7 @@ const PatientDashboard = ({ authUser }) => {
                   <div className="card-body d-flex justify-content-center align-items-center">
                     <img
                       src={history}
-                      className="card-img-top mt-3 me-3"
+                      className="card-img-top mt-3"
                       style={{
                         maxHeight: "5rem",
                         maxWidth: "5rem",
@@ -373,7 +374,7 @@ const PatientDashboard = ({ authUser }) => {
                   <div className="card-body d-flex justify-content-center align-items-center">
                     <img
                       src={analysis}
-                      className="card-img-top mt-3 ms-3 "
+                      className="card-img-top mt-3 "
                       style={{
                         maxHeight: "5rem",
                         maxWidth: "5rem",

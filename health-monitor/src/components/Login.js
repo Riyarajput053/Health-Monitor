@@ -1,18 +1,14 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../style/login.css"; // Importing your custom CSS file
+import "../style/login.css"; // Import your custom CSS
 import axios from "axios";
-import { jwtDecode } from 'jwt-decode';
+import { jwtDecode } from "jwt-decode";
 import { AuthContext } from "./Functions/AuthProvider";
-
 
 const LoginForm = () => {
   const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const API_URL = process.env.REACT_APP_API_URL;
-
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
 
   const [formData, setFormData] = useState({
     email: "",
@@ -20,29 +16,27 @@ const LoginForm = () => {
   });
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    const val = type === "checkbox" ? checked : value;
+    const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: val,
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      const response = await fetch(`${API_URL}/User/login`, {
-        method: 'POST',
+      const response = await fetch(`${API_URL}/User/login`, { 
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ ...formData }),
-        credentials: 'include',
+        credentials: "include",
       });
 
       const data = await response.json();
-      console.log('Received data:', data);
+      console.log("Received data:", data);
 
       if (response.ok) {
         const { token } = data;
@@ -54,7 +48,6 @@ const LoginForm = () => {
         const decoded = jwtDecode(token);
         console.log(decoded);
 
-        // Store token and user info in localStorage
         localStorage.setItem("token", token);
         localStorage.setItem(
           "user",
@@ -62,8 +55,6 @@ const LoginForm = () => {
         );
 
         setUser({ userId: decoded.userId, role: decoded.role });
-        console.log("Received Token:", data.token); // Debugging
-        localStorage.setItem("token", data.token);
         navigate("/patient-dashboard");
       } else {
         alert(data.message);
@@ -73,111 +64,76 @@ const LoginForm = () => {
     }
   };
 
-
-
-
-  const handleForgotPassword = () => {
-    // Implement the logic for handling forgot password
-    // This typically involves sending a password reset email to the user's email address
-    console.log("Forgot Password clicked");
-    // You would send a request to your backend to handle the password reset process
-    // For this example, let's just show an alert
-    alert("A password reset link has been sent to your email.");
-  };
-
   return (
-    <>
-      <div
-        id="login-container"
-        style={{
-          flexDirection: "column",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          backgroundColor: "#008B8B",
-        }}
-      >
-        <div id="login-container-box">
-          <div
-            id="logo"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <img
-              class="img-fluid"
-              src="https://media.licdn.com/dms/image/C560BAQGYYuRNc51wog/company-logo_200_200/0/1631381718986?e=2147483647&v=beta&t=-MWTZKj5QY0ahW6nF-DYGuicq8LPa8DeKofynMt6DPI"
-              alt="Health Monitor Logo"
+    <div
+      className="d-flex flex-column justify-content-center align-items-center min-vh-100"
+      style={{ backgroundColor: "#008B8B" }}
+    >
+      <div className="card p-4 shadow-lg border-0" style={{ maxWidth: "800px", width: "90%" }}>
+        <div className="text-center mb-3">
+          <img
+            src="https://media.licdn.com/dms/image/C560BAQGYYuRNc51wog/company-logo_200_200/0/1631381718986?e=2147483647&v=beta&t=-MWTZKj5QY0ahW6nF-DYGuicq8LPa8DeKofynMt6DPI"
+            alt="Health Monitor Logo"
+            className="img-fluid"
+            style={{ maxWidth: "100px" }}
+          />
+        </div>
+
+        <h2 className="text-center  mb-3" style={{color:"#008B8B"}}>Login Here</h2>
+        
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label className="form-label" >
+              <i className="fa-solid fa-envelope fa-lg me-2"  style={{color:"#008B8B"}}></i>Email address
+            </label>
+            <input
+              className="form-control"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
             />
           </div>
-          <div id="login-box">
 
-            <h2 id="login">Login Here</h2>
-            <form id="form" onSubmit={handleSubmit}>
-              <div className="mb-3">
-                <span>
-                  <i class="fa-solid fa-envelope fa-lg icon "></i>
-                </span>
-                <label for="exampleFormControlInput1" className="form-label">
-                  &emsp;Email address
-                </label>
-
-
-                <input
-                  className="form-control"
-                  id="exampleFormControlInput1"
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div>
-                <span>
-                  <i class="fa-solid fa-key fa-lg icon"></i>
-                </span>
-                <label for="inputPassword5" className="form-label">
-                  &emsp;Password:
-                </label>
-                <input
-                  id="inputPassword5"
-                  class="form-control"
-                  aria-describedby="passwordHelpBlock"
-                  type="password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <button id="button" type="submit">
-                Login
-              </button>
-            </form>
-            <div style={{ marginTop: "10px" }}>
-              <p>
-                Don't have an account?{" "}
-                <Link to="/register-patient">Sign up</Link>
-              </p>
-              <p onClick={handleForgotPassword} style={{ cursor: "pointer" }}>
-                Forgot Password?
-              </p>
-              <a href="#!" class="small text-muted">
-                Terms of use.
-              </a>
-              <a href="#!" class="small text-muted">
-                Privacy policy
-              </a>
-            </div>
+          <div className="mb-3">
+            <label className="form-label">
+              <i className="fa-solid fa-key fa-lg me-2" style={{color:"#008B8B"}}></i>Password
+            </label>
+            <input
+              className="form-control"
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
           </div>
+
+          <button className="btn  w-100" type="submit" id="button" >
+            Login
+          </button>
+        </form>
+
+        <div className="text-center mt-3">
+          <p>
+            Don't have an account? <Link to="/register-patient">Sign up</Link>
+          </p>
+          <p
+            className="text-danger"
+            style={{ cursor: "pointer" }}
+            onClick={() => alert("A password reset link has been sent to your email.")}
+          >
+            Forgot Password?
+          </p>
+        </div>
+
+        <div className="text-center">
+          <a href="#!" className="small text-muted me-2">Terms of use</a>
+          <a href="#!" className="small text-muted">Privacy policy</a>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

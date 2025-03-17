@@ -1,44 +1,87 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "./AuthProvider"; // Import AuthContext
-import "../../style/navbar.css";
+import { AuthContext } from "./AuthProvider"; 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 
 function Navbar() {
-  const { user, logout } = useContext(AuthContext); // Get user and logout function from context
+  const { user, logout } = useContext(AuthContext);
+
+  useEffect(() => {
+    require("bootstrap/dist/js/bootstrap.bundle.min");
+  }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ backgroundColor: "#6196A6" }}>
+    <nav className="navbar navbar-expand-lg " style={{ backgroundColor: "#6196A6", important: "true" }}>
       <div className="container-fluid">
-        {/* If user is logged in, show "Dashboard" link, otherwise show "Health Monitor" */}
-        <Link className="navbar-brand text-white" to={user ? "/patient-dashboard" : "/"}>{user ? "Dashboard" : "Health Monitor"}</Link>
+        {/* Sidebar Toggle */}
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#sidebarMenu"
+          aria-controls="sidebarMenu"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
-        <div className="collapse navbar-collapse" style={{ justifyContent: "right" }}>
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <Link className="nav-link text-white" to="/features">Features</Link>
-            </li>
-           
-            <li className="nav-item">
-              <Link className="nav-link text-white" to="/about">About</Link>
-            </li>
+        {/* Navbar Brand */}
+        <Link className="navbar-brand text-white" to={user ? "/patient-dashboard" : "/"}>
+          {user ? "Dashboard" : "Health Monitor"}
+        </Link>
 
-            {user ? ( // If user is logged in, show Logout
+        {/* Sidebar (Offcanvas) */}
+        <div
+          className="offcanvas offcanvas-start bg-dark text-white"
+          style={{ width: "50vw", maxWidth: "400px" }}
+          tabIndex="-1"
+          id="sidebarMenu"
+          aria-labelledby="sidebarMenuLabel"
+        >
+          <div className="offcanvas-header">
+            <h5 className="offcanvas-title" id="sidebarMenuLabel">Menu</h5>
+            <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+          </div>
+          <div className="offcanvas-body">
+            <ul className="navbar-nav">
               <li className="nav-item">
-                <button className="nav-link text-white btn btn-link" onClick={logout}>Logout</button>
-                
-
+                <Link className="nav-link text-white" to="/features" onClick={() => document.getElementById("sidebarMenu").classList.remove("show")}>
+                  Features
+                </Link>
               </li>
-            ) : ( // If user is NOT logged in, show Login & Register
-              <>
+              <li className="nav-item">
+                <Link className="nav-link text-white" to="/about" onClick={() => document.getElementById("sidebarMenu").classList.remove("show")}>
+                  About
+                </Link>
+              </li>
+              {user ? (
                 <li className="nav-item">
-                  <Link className="nav-link text-white" to="/login">Login</Link>
+                  <button 
+                    className="nav-link text-white btn btn-link" 
+                    onClick={() => { 
+                      document.getElementById("sidebarMenu").classList.remove("show");
+                      logout();
+                    }}
+                  >
+                    Logout
+                  </button>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link text-white" to="/register-patient">Register</Link>
-                </li>
-              </>
-            )}
-          </ul>
+              ) : (
+                <>
+                  <li className="nav-item">
+                    <Link className="nav-link text-white" to="/login" onClick={() => document.getElementById("sidebarMenu").classList.remove("show")}>
+                      Login
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link text-white" to="/register-patient" onClick={() => document.getElementById("sidebarMenu").classList.remove("show")}>
+                      Register
+                    </Link>
+                  </li>
+                </>
+              )}
+            </ul>
+          </div>
         </div>
       </div>
     </nav>

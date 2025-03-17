@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.custom-img {
+  max-height: 200px;
+  /* Limits height for large screens */
+  object-fit: cover;
+  /* Ensures images fit nicely */
+}
+
+@media (max-width: 768px) {
+  .custom-img {
+    max-height: 150px;
+    /* Reduce size for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-img {
+    max-height: 120px;
+    /* Further reduce size for mobile screens */
+  }
+}

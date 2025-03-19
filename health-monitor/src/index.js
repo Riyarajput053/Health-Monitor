@@ -15,11 +15,11 @@ const rootInstance = createRoot(root);
 rootInstance.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AuthProvider>
-        <LoadingProvider>
+      <LoadingProvider>
+        <AuthProvider>
           <App />
-        </LoadingProvider>
-      </AuthProvider>
+        </AuthProvider>
+      </LoadingProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

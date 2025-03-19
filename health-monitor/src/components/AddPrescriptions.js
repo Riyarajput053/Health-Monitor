@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../style/addrecords.css";
+import { useLoading } from "../context/LoadingContext";
+
 
 function AddPrescriptions() {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -12,6 +14,8 @@ function AddPrescriptions() {
   const [description, setDescription] = useState("");
   const [condition, setCondition] = useState("");
   const [uploadSuccess, setUploadSuccess] = useState(false);
+  const { loading, setLoading } = useLoading();
+
   const API_URL = process.env.REACT_APP_API_URL;
   const handleFileChange = (e) => {
     setSelectedFile(e.target.files[0]);
@@ -19,6 +23,8 @@ function AddPrescriptions() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+
 
     if (!selectedFile) {
       alert("Please select a file.");
@@ -53,6 +59,8 @@ function AddPrescriptions() {
     } catch (error) {
       console.error("Error:", error);
       alert("Failed to upload prescription.");
+    }finally {
+      setLoading(false); // Stop loading once data is fetched
     }
   };
 

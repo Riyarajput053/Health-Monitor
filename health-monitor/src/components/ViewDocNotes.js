@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useLoading } from "../context/LoadingContext";
+
 
 
 const ViewDocNotes = () => {
     const [note, setNote] = useState([]);
+    const { loading, setLoading } = useLoading(true);
+
     const navigate = useNavigate();
     const API_URL = process.env.REACT_APP_API_URL;
 
@@ -42,7 +46,9 @@ const ViewDocNotes = () => {
             } catch (err) {
                 console.error("Error fetching notes:", err);
                 setNote([]);
-            }
+            }finally {
+                setLoading(false); 
+              }
         };
 
         fetchNotes();

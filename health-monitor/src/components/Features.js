@@ -6,6 +6,8 @@ import features1 from "../images/features1.webp";
 import features3 from "../images/features3.webp";
 import feature4 from "../images/feature4.jpeg";
 import feature5 from "../images/feature5.png";
+import { useLoading } from "../context/LoadingContext";
+
 
 const FeatureCard = ({ image, title, points }) => (
   <div className="card mb-4 shadow-sm border-0">

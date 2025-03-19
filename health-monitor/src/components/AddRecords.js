@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../style/addrecords.css";
+import { useLoading } from "../context/LoadingContext";
+
 
 function AddRecords() {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -12,6 +14,8 @@ function AddRecords() {
   const [description, setDescription] = useState("");
   const [condition, setCondition] = useState("");
   const [uploadSuccess, setUploadSuccess] = useState(false);
+  const { loading, setLoading } = useLoading();
+
   const API_URL = process.env.REACT_APP_API_URL;
 
   const handleFileChange = (e) => {
@@ -20,6 +24,8 @@ function AddRecords() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+
 
     if (!selectedFile) {
       alert("Please select a file.");
@@ -52,6 +58,8 @@ function AddRecords() {
     } catch (error) {
       console.error("Error:", error);
       alert("Failed to upload report.");
+    }finally {
+      setLoading(false); // Stop loading once data is fetched
     }
   };
 

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
+import { useLoading } from "../context/LoadingContext";
+
 
 const AddMedExpense = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -13,6 +15,8 @@ const AddMedExpense = () => {
   const [amount, setAmount] = useState("");
   const [condition, setCondition] = useState("");
   const [uploadSuccess, setUploadSuccess] = useState(false);
+  const { loading, setLoading } = useLoading();
+
   const API_URL = process.env.REACT_APP_API_URL;
 
   const handleFileChange = (e) => {
@@ -21,6 +25,8 @@ const AddMedExpense = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+
 
     if (!selectedFile) {
       alert("Please select a file.");
@@ -56,6 +62,8 @@ const AddMedExpense = () => {
     } catch (error) {
       console.error("Error:", error);
       alert("Failed to upload bill.");
+    }finally {
+      setLoading(false); // Stop loading once data is fetched
     }
   };
 

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
+import { useLoading } from "../context/LoadingContext";
+
 
 const AddVaccination = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -12,12 +14,16 @@ const AddVaccination = () => {
   const [docName, setDocName] = useState("");
   const [condition, setCondition] = useState("");
   const [uploadSuccess, setUploadSuccess] = useState(false);
+  const { loading, setLoading } = useLoading();
+
   const API_URL = process.env.REACT_APP_API_URL;
 
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+
 
 
     const formData = new FormData();
@@ -57,6 +63,8 @@ const AddVaccination = () => {
     } catch (error) {
       console.error("Error:", error);
       alert("Failed to upload vaccination information.");
+    }finally {
+      setLoading(false); // Stop loading once data is fetched
     }
   };
 

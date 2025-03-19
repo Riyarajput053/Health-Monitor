@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../style/addrecords.css";
+import { useLoading } from "../context/LoadingContext";
+
 
 function AddDocNotes() {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -10,12 +12,16 @@ function AddDocNotes() {
   const [docName, setDocName] = useState("");
   const [notes, setNotes] = useState("");
   const [uploadSuccess, setUploadSuccess] = useState(false);
+  const { loading, setLoading } = useLoading();
   const API_URL = process.env.REACT_APP_API_URL;
+
 
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+
 
 
     const formData = new FormData();
@@ -51,6 +57,8 @@ function AddDocNotes() {
     } catch (error) {
       console.error("Error:", error);
       alert("Failed to upload note.");
+    } finally {
+      setLoading(false); // Stop loading once data is fetched
     }
   };
 

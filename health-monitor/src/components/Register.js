@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../style/login.css"; // Using the same CSS as login for consistency
 import axios from "axios";
+import { useLoading } from "../context/LoadingContext";
+
 
 const RegisterForm = () => {
+  const { loading, setLoading } = useLoading();
+
   const navigate = useNavigate();
   const API_URL = process.env.REACT_APP_API_URL;
 
@@ -24,6 +28,8 @@ const RegisterForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match");
       return;
@@ -37,6 +43,8 @@ const RegisterForm = () => {
     } catch (error) {
       console.error("Registration failed", error);
       alert("Registration failed. Please try again.");
+    }finally {
+      setLoading(false); // Stop loading once data is fetched
     }
   };
 

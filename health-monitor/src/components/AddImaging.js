@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../style/addrecords.css";
+import { useLoading } from "../context/LoadingContext";
+
 
 function AddImaging() {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -12,6 +14,9 @@ function AddImaging() {
   const [description, setDescription] = useState("");
   const [condition, setCondition] = useState("");
   const [uploadSuccess, setUploadSuccess] = useState(false);
+  const { loading, setLoading } = useLoading();
+
+
   const API_URL = process.env.REACT_APP_API_URL;
 
   const handleFileChange = (e) => {
@@ -20,6 +25,8 @@ function AddImaging() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+
 
     if (!selectedFile) {
       alert("Please select a file.");
@@ -54,6 +61,8 @@ function AddImaging() {
     } catch (error) {
       console.error("Error:", error);
       alert("Failed to upload image.");
+    } finally {
+      setLoading(false); // Stop loading once data is fetched
     }
   };
 

@@ -32,7 +32,7 @@ const PatientDashboard = ({ authUser }) => {
 
       <div
         style={{
-          flexWrap: wrap,
+          flexWrap: "wrap",
           flexDirection: "column",
           display: "flex",
           height: "715px",

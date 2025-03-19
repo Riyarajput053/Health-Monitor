@@ -6,7 +6,7 @@ import { useLoading } from "../context/LoadingContext";
 
 const ViewDocNotes = () => {
     const [note, setNote] = useState([]);
-    const { loading, setLoading } = useLoading(true);
+    const { loading, setLoading } = useLoading();
 
     const navigate = useNavigate();
     const API_URL = process.env.REACT_APP_API_URL;
@@ -58,7 +58,7 @@ const ViewDocNotes = () => {
    
 
     const handleDelete = async (id) => {
-        useLoading(true);
+        setLoading(true);
         const confirmDelete = window.confirm("Are you sure you want to delete this Note?");
         if (!confirmDelete) return;
 

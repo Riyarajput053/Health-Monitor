@@ -32,7 +32,7 @@ const PatientDashboard = ({ authUser }) => {
 
       <div
         style={{
-          flexWrap: "wrap",
+       
           flexDirection: "column",
           display: "flex",
           height: "715px",
@@ -41,6 +41,7 @@ const PatientDashboard = ({ authUser }) => {
         <div
           style={{
             display: "flex",
+            flexWrap: "wrap",
             alignItems: "center",
             justifyContent: "center",
           }}

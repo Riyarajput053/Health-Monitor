@@ -8,7 +8,7 @@ const LoadingSpinner = () => {
 
   return (
     <div className="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center bg-white bg-opacity-75" style={{ zIndex: 1050 }}>
-    <Spinner animation="border" variant="primary" />
+    <Spinner animation="border" style={{color:"#6196A6"}}/>
   </div>
   );
 };

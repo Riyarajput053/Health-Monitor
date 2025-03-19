@@ -12,7 +12,7 @@ const LoginForm = () => {
   const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const API_URL = process.env.REACT_APP_API_URL;
-  setLoading(true);
+
 
 
 
@@ -31,6 +31,7 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await fetch(`${API_URL}/User/login`, { 
         method: "POST",

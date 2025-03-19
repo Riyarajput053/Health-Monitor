@@ -11,7 +11,7 @@ import axios from "axios";
 const PatientDashboard = ({ authUser }) => {
   return (
     <div>
-
+     
       {/* <div> */}
       {/* <h3>Followed Doctors:</h3>
         <ul>
@@ -35,19 +35,20 @@ const PatientDashboard = ({ authUser }) => {
             justifyContent: "center",
           }}
         >
-          <div className="row row-cols-2 row-cols-md-3 g-4 mt-5">
+          <div className="row row-cols-1 row-cols-md-3 g-4 mt-5">
             <div className="col">
               <Link
                 to="/viewrecords"
                 style={{ textDecoration: "none", color: "#008B8B" }}
               >
                 <div
-                  className="card w-100 rounded-4 bg-light"
+                  className="card"
                   style={{
-                    // minHeight: "10rem",
-                    // maxWidth: "15rem",
-                    // borderRadius: "25px",
-                    // backgroundColor: "#EEEEEE",
+                    minHeight: "10rem",
+                    minWidth: "15rem",
+
+                    borderRadius: "25px",
+                    backgroundColor: "#EEEEEE",
                     cursor: "pointer",
                   }}
                 >
@@ -62,13 +63,13 @@ const PatientDashboard = ({ authUser }) => {
                 style={{ textDecoration: "none", color: "#008B8B" }}
               >
                 <div
-                  className="card w-100 rounded-4 bg-light mt-5"
+                  className="card mt-5"
                   style={{
-                    // maxWidth: "15rem",
-                    // minHeight: "10rem",
-                    // minWidth: "15rem",
-                    // borderRadius: "25px",
-                    // backgroundColor: "#EEEEEE",
+                    maxWidth: "15rem",
+                    minHeight: "10rem",
+                    minWidth: "15rem",
+                    borderRadius: "25px",
+                    backgroundColor: "#EEEEEE",
                     cursor: "pointer",
                   }}
                 >
@@ -84,13 +85,13 @@ const PatientDashboard = ({ authUser }) => {
                 style={{ textDecoration: "none", color: "#008B8B" }}
               >
                 <div
-                  className="card w-100 rounded-4 bg-light "
+                  className="card"
                   style={{
-                    // maxWidth: "15rem",
-                    // minHeight: "10rem",
-                    // minWidth: "15rem",
-                    // borderRadius: "25px",
-                    // backgroundColor: "#EEEEEE",
+                    maxWidth: "15rem",
+                    minHeight: "10rem",
+                    minWidth: "15rem",
+                    borderRadius: "25px",
+                    backgroundColor: "#EEEEEE",
                     cursor: "pointer",
                   }}
                 >
@@ -104,13 +105,13 @@ const PatientDashboard = ({ authUser }) => {
                 style={{ textDecoration: "none", color: "#008B8B" }}
               >
                 <div
-                  className="card w-100 rounded-4 bg-light mt-5"
+                  className="card mt-5"
                   style={{
-                    // maxWidth: "15rem",
-                    // minHeight: "10rem",
-                    // minWidth: "15rem",
-                    // borderRadius: "25px",
-                    // backgroundColor: "#EEEEEE",
+                    maxWidth: "15rem",
+                    minHeight: "10rem",
+                    minWidth: "15rem",
+                    borderRadius: "25px",
+                    backgroundColor: "#EEEEEE",
                     cursor: "pointer",
                   }}
                 >
@@ -127,13 +128,13 @@ const PatientDashboard = ({ authUser }) => {
                 style={{ textDecoration: "none", color: "#008B8B" }}
               >
                 <div
-                  className="card w-100 rounded-4 bg-light "
+                  className="card"
                   style={{
-                    // maxWidth: "15rem",
-                    // minHeight: "10rem",
-                    // minWidth: "15rem",
-                    // borderRadius: "25px",
-                    // backgroundColor: "#EEEEEE",
+                    maxWidth: "15rem",
+                    minHeight: "10rem",
+                    minWidth: "15rem",
+                    borderRadius: "25px",
+                    backgroundColor: "#EEEEEE",
                     cursor: "pointer",
                   }}
                 >
@@ -147,13 +148,13 @@ const PatientDashboard = ({ authUser }) => {
                 style={{ textDecoration: "none", color: "#008B8B" }}
               >
                 <div
-                  className="card w-100 rounded-4 bg-light mt-5"
+                  className="card mt-5"
                   style={{
-                    // maxWidth: "15rem",
-                    // minHeight: "10rem",
-                    // minWidth: "15rem",
-                    // borderRadius: "25px",
-                    // backgroundColor: "#EEEEEE",
+                    maxWidth: "15rem",
+                    minHeight: "10rem",
+                    minWidth: "15rem",
+                    borderRadius: "25px",
+                    backgroundColor: "#EEEEEE",
                     cursor: "pointer",
                   }}
                 >
@@ -171,7 +172,7 @@ const PatientDashboard = ({ authUser }) => {
             type="button"
             data-bs-toggle="modal"
             data-bs-target="#staticBackdrop"
-            style={{ width: "800px", backgroundColor: "#008B8B" }}
+            style={{ width: "800px" , backgroundColor: "#008B8B"  }}
           >
             {" "}
             + Add New Record
@@ -193,14 +194,14 @@ const PatientDashboard = ({ authUser }) => {
                 className="modal-body"
                 style={{ backgroundColor: "#008B8B" }}
               >
-                <div className="row row-cols-2 row-cols-md-3 g-4 m-5">
+                <div className="row row-cols-1 row-cols-md-3 g-4 m-5">
                   <div className="col">
                     <Link
                       to="/addrecords"
                       style={{ textDecoration: "none", color: "#008B8B" }}
                     >
                       <div
-                        className="card w-100 rounded-4 bg-light "
+                        className="card "
                         style={{
                           width: "9rem",
                           height: "6rem",
@@ -220,7 +221,7 @@ const PatientDashboard = ({ authUser }) => {
                       style={{ textDecoration: "none", color: "#008B8B" }}
                     >
                       <div
-                        className="card w-100 rounded-4 bg-light mt-3"
+                        className="card mt-3"
                         style={{
                           width: "9rem",
                           height: "6rem",
@@ -240,7 +241,7 @@ const PatientDashboard = ({ authUser }) => {
                       style={{ textDecoration: "none", color: "#008B8B" }}
                     >
                       <div
-                        className="card w-100 rounded-4 bg-light mt-3"
+                        className="card mt-3"
                         style={{
                           width: "9rem",
                           height: "6rem",
@@ -263,7 +264,7 @@ const PatientDashboard = ({ authUser }) => {
                       style={{ textDecoration: "none", color: "#008B8B" }}
                     >
                       <div
-                        className="card w-100 rounded-4 bg-light  "
+                        className="card "
                         style={{
                           width: "9rem",
                           height: "6rem",
@@ -283,7 +284,7 @@ const PatientDashboard = ({ authUser }) => {
                       style={{ textDecoration: "none", color: "#008B8B" }}
                     >
                       <div
-                        className="card w-100 rounded-4 bg-light mt-3"
+                        className="card mt-3"
                         style={{
                           width: "9rem",
                           height: "6rem",
@@ -303,7 +304,7 @@ const PatientDashboard = ({ authUser }) => {
                       style={{ textDecoration: "none", color: "#008B8B" }}
                     >
                       <div
-                        className="card w-100 rounded-4 bg-light mt-3"
+                        className="card mt-3"
                         style={{
                           width: "9rem",
                           height: "6rem",
@@ -339,12 +340,12 @@ const PatientDashboard = ({ authUser }) => {
           <div className="row row-cols-1 row-cols-md-3 g-4 mt-5 mb-5">
             <div className="col">
               <div
-                className="card w-100 rounded-4 bg-light "
+                className="card"
                 style={{
-                  // height: "10rem",
-                  // width: "20rem",
-                  // borderRadius: "25px",
-                  // backgroundColor: "#EEEEEE",
+                  height: "10rem",
+                  width: "20rem",
+                  borderRadius: "25px",
+                  backgroundColor: "#EEEEEE",
                   cursor: "pointer",
                 }}
               >
@@ -372,12 +373,12 @@ const PatientDashboard = ({ authUser }) => {
             </div>
             <div className="col">
               <div
-                className="card w-100 rounded-4 bg-light mt-5"
+                className="card"
                 style={{
-                  // height: "10rem",
-                  // width: "20rem",
-                  // borderRadius: "25px",
-                  // backgroundColor: "#EEEEEE",
+                  height: "10rem",
+                  width: "20rem",
+                  borderRadius: "25px",
+                  backgroundColor: "#EEEEEE",
                   cursor: "pointer",
                 }}
               >

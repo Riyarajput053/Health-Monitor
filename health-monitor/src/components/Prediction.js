@@ -6,7 +6,7 @@ const Prediction = ( authUser) => {
   useEffect(()=>{
     window.scrollTo(0,0)
   },[])
-    const PredUrl = 'https://health-monitor-pred.streamlit.app/?someparam=value&embedded=true';
+    const PredUrl = 'https://health-monitor-pred.streamlit.app/ ';
   return (
     <div style={{ width: '100%', height: '600px' }}>
       

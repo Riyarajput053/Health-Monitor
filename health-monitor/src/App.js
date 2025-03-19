@@ -29,6 +29,8 @@ import AddVaccination from "./components/AddVaccination";
 import Navbar from "./components/Functions/Navbar";
 import { AuthContext, AuthProvider } from "./components/Functions/AuthProvider";
 import Image from "./components/Image";
+import LoadingSpinner from "./components/Functions/LoadingSpinner";
+
 
 
 
@@ -45,6 +47,7 @@ const App = () => {
   return (
     <AuthProvider>
       <Navbar />
+      <LoadingSpinner />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

@@ -4,11 +4,20 @@ import "../style/login.css"; // Import your custom CSS
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { AuthContext } from "./Functions/AuthProvider";
+import { useLoading } from "../context/LoadingContext";
+
 
 const LoginForm = () => {
+  const { loading, setLoading } = useLoading();
   const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const API_URL = process.env.REACT_APP_API_URL;
+
+  
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => setLoading(false), 2000); 
+  }, []);
 
   const [formData, setFormData] = useState({
     email: "",

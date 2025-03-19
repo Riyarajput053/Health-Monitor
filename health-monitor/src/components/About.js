@@ -1,10 +1,18 @@
 import React, { useEffect } from "react";
 import Navbar from "./Functions/Navbar";
 import Footer from "./Functions/Footer";
+import { useLoading } from "../context/LoadingContext";
+
 
 const About = () => {
+  const { loading, setLoading } = useLoading();
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+  
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => setLoading(false), 2000); 
   }, []);
 
   return (

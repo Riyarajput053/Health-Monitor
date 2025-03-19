@@ -8,16 +8,7 @@ import history from "../images/history.png";
 import analysis from "../images/analysis.png";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useLoading } from "../context/LoadingContext";
-
 const PatientDashboard = ({ authUser }) => {
-  const { loading, setLoading } = useLoading();
-
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => setLoading(false), 2000);
-  }, []);
-
   return (
     <div>
 
@@ -32,7 +23,6 @@ const PatientDashboard = ({ authUser }) => {
 
       <div
         style={{
-       
           flexDirection: "column",
           display: "flex",
           height: "715px",
@@ -41,24 +31,23 @@ const PatientDashboard = ({ authUser }) => {
         <div
           style={{
             display: "flex",
-            flexWrap: "wrap",
             alignItems: "center",
             justifyContent: "center",
           }}
         >
-          <div className="row row-cols-1 row-cols-md-3 g-4 mt-5">
+          <div className="row row-cols-2 row-cols-md-3 g-4 mt-5">
             <div className="col">
               <Link
                 to="/viewrecords"
                 style={{ textDecoration: "none", color: "#008B8B" }}
               >
                 <div
-                  className="card"
+                  className="card w-100 rounded-4 bg-light"
                   style={{
-                    minHeight: "10rem",
-                    maxWidth: "20rem",
-                    borderRadius: "25px",
-                    backgroundColor: "#EEEEEE",
+                    // minHeight: "10rem",
+                    // maxWidth: "15rem",
+                    // borderRadius: "25px",
+                    // backgroundColor: "#EEEEEE",
                     cursor: "pointer",
                   }}
                 >
@@ -73,13 +62,13 @@ const PatientDashboard = ({ authUser }) => {
                 style={{ textDecoration: "none", color: "#008B8B" }}
               >
                 <div
-                  className="card mt-5"
+                  className="card w-100 rounded-4 bg-light mt-5"
                   style={{
-                    maxWidth: "20rem",
-                    minHeight: "10rem",
-                    minWidth: "15rem",
-                    borderRadius: "25px",
-                    backgroundColor: "#EEEEEE",
+                    // maxWidth: "15rem",
+                    // minHeight: "10rem",
+                    // minWidth: "15rem",
+                    // borderRadius: "25px",
+                    // backgroundColor: "#EEEEEE",
                     cursor: "pointer",
                   }}
                 >
@@ -95,13 +84,13 @@ const PatientDashboard = ({ authUser }) => {
                 style={{ textDecoration: "none", color: "#008B8B" }}
               >
                 <div
-                  className="card"
+                  className="card w-100 rounded-4 bg-light "
                   style={{
-                    maxWidth: "20rem",
-                    minHeight: "10rem",
-                    minWidth: "15rem",
-                    borderRadius: "25px",
-                    backgroundColor: "#EEEEEE",
+                    // maxWidth: "15rem",
+                    // minHeight: "10rem",
+                    // minWidth: "15rem",
+                    // borderRadius: "25px",
+                    // backgroundColor: "#EEEEEE",
                     cursor: "pointer",
                   }}
                 >
@@ -115,13 +104,13 @@ const PatientDashboard = ({ authUser }) => {
                 style={{ textDecoration: "none", color: "#008B8B" }}
               >
                 <div
-                  className="card mt-5"
+                  className="card w-100 rounded-4 bg-light mt-5"
                   style={{
-                    maxWidth: "20rem",
-                    minHeight: "10rem",
-                    minWidth: "15rem",
-                    borderRadius: "25px",
-                    backgroundColor: "#EEEEEE",
+                    // maxWidth: "15rem",
+                    // minHeight: "10rem",
+                    // minWidth: "15rem",
+                    // borderRadius: "25px",
+                    // backgroundColor: "#EEEEEE",
                     cursor: "pointer",
                   }}
                 >
@@ -138,13 +127,13 @@ const PatientDashboard = ({ authUser }) => {
                 style={{ textDecoration: "none", color: "#008B8B" }}
               >
                 <div
-                  className="card"
+                  className="card w-100 rounded-4 bg-light "
                   style={{
-                    maxWidth: "20rem",
-                    minHeight: "10rem",
-                    minWidth: "15rem",
-                    borderRadius: "25px",
-                    backgroundColor: "#EEEEEE",
+                    // maxWidth: "15rem",
+                    // minHeight: "10rem",
+                    // minWidth: "15rem",
+                    // borderRadius: "25px",
+                    // backgroundColor: "#EEEEEE",
                     cursor: "pointer",
                   }}
                 >
@@ -158,13 +147,13 @@ const PatientDashboard = ({ authUser }) => {
                 style={{ textDecoration: "none", color: "#008B8B" }}
               >
                 <div
-                  className="card mt-5"
+                  className="card w-100 rounded-4 bg-light mt-5"
                   style={{
-                    maxWidth: "20rem",
-                    minHeight: "10rem",
-                    minWidth: "15rem",
-                    borderRadius: "25px",
-                    backgroundColor: "#EEEEEE",
+                    // maxWidth: "15rem",
+                    // minHeight: "10rem",
+                    // minWidth: "15rem",
+                    // borderRadius: "25px",
+                    // backgroundColor: "#EEEEEE",
                     cursor: "pointer",
                   }}
                 >
@@ -204,14 +193,14 @@ const PatientDashboard = ({ authUser }) => {
                 className="modal-body"
                 style={{ backgroundColor: "#008B8B" }}
               >
-                <div className="row row-cols-1 row-cols-md-3 g-4 m-5">
+                <div className="row row-cols-2 row-cols-md-3 g-4 m-5">
                   <div className="col">
                     <Link
                       to="/addrecords"
                       style={{ textDecoration: "none", color: "#008B8B" }}
                     >
                       <div
-                        className="card "
+                        className="card w-100 rounded-4 bg-light "
                         style={{
                           width: "9rem",
                           height: "6rem",
@@ -231,7 +220,7 @@ const PatientDashboard = ({ authUser }) => {
                       style={{ textDecoration: "none", color: "#008B8B" }}
                     >
                       <div
-                        className="card mt-3"
+                        className="card w-100 rounded-4 bg-light mt-3"
                         style={{
                           width: "9rem",
                           height: "6rem",
@@ -251,7 +240,7 @@ const PatientDashboard = ({ authUser }) => {
                       style={{ textDecoration: "none", color: "#008B8B" }}
                     >
                       <div
-                        className="card mt-3"
+                        className="card w-100 rounded-4 bg-light mt-3"
                         style={{
                           width: "9rem",
                           height: "6rem",
@@ -274,7 +263,7 @@ const PatientDashboard = ({ authUser }) => {
                       style={{ textDecoration: "none", color: "#008B8B" }}
                     >
                       <div
-                        className="card "
+                        className="card w-100 rounded-4 bg-light  "
                         style={{
                           width: "9rem",
                           height: "6rem",
@@ -294,7 +283,7 @@ const PatientDashboard = ({ authUser }) => {
                       style={{ textDecoration: "none", color: "#008B8B" }}
                     >
                       <div
-                        className="card mt-3"
+                        className="card w-100 rounded-4 bg-light mt-3"
                         style={{
                           width: "9rem",
                           height: "6rem",
@@ -314,7 +303,7 @@ const PatientDashboard = ({ authUser }) => {
                       style={{ textDecoration: "none", color: "#008B8B" }}
                     >
                       <div
-                        className="card mt-3"
+                        className="card w-100 rounded-4 bg-light mt-3"
                         style={{
                           width: "9rem",
                           height: "6rem",
@@ -350,12 +339,12 @@ const PatientDashboard = ({ authUser }) => {
           <div className="row row-cols-1 row-cols-md-3 g-4 mt-5 mb-5">
             <div className="col">
               <div
-                className="card"
+                className="card w-100 rounded-4 bg-light "
                 style={{
-                  height: "10rem",
-                  width: "20rem",
-                  borderRadius: "25px",
-                  backgroundColor: "#EEEEEE",
+                  // height: "10rem",
+                  // width: "20rem",
+                  // borderRadius: "25px",
+                  // backgroundColor: "#EEEEEE",
                   cursor: "pointer",
                 }}
               >
@@ -383,12 +372,12 @@ const PatientDashboard = ({ authUser }) => {
             </div>
             <div className="col">
               <div
-                className="card"
+                className="card w-100 rounded-4 bg-light mt-5"
                 style={{
-                  height: "10rem",
-                  width: "20rem",
-                  borderRadius: "25px",
-                  backgroundColor: "#EEEEEE",
+                  // height: "10rem",
+                  // width: "20rem",
+                  // borderRadius: "25px",
+                  // backgroundColor: "#EEEEEE",
                   cursor: "pointer",
                 }}
               >

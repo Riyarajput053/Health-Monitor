@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useLoading } from "react";
+import React, { useEffect, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Home from "./components/Home";
@@ -30,6 +30,7 @@ import Navbar from "./components/Functions/Navbar";
 import { AuthContext, AuthProvider } from "./components/Functions/AuthProvider";
 import Image from "./components/Image";
 import LoadingSpinner from "./components/Functions/LoadingSpinner";
+import { useLoading } from "./context/LoadingContext";
 
 
 

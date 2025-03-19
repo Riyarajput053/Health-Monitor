@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useLoading } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Home from "./components/Home";
@@ -36,6 +36,7 @@ import LoadingSpinner from "./components/Functions/LoadingSpinner";
 
 const App = () => {
   const { setAuthUser } = useContext(AuthContext); // Extracting setAuthUser
+  const { loading } = useLoading();
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("authUser"));

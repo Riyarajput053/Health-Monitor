@@ -14,6 +14,7 @@ const ViewDocNotes = () => {
 
 
     useEffect(() => {
+        setLoading(true);
         const fetchNotes = async () => {
             try {
                 const token = localStorage.getItem("token"); // 🔹 Get token from localStorage

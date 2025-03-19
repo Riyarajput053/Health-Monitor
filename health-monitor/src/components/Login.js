@@ -12,12 +12,9 @@ const LoginForm = () => {
   const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const API_URL = process.env.REACT_APP_API_URL;
+  setLoading(true);
 
-  
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => setLoading(false), 2000); 
-  }, []);
+
 
   const [formData, setFormData] = useState({
     email: "",
@@ -70,6 +67,8 @@ const LoginForm = () => {
       }
     } catch (error) {
       console.error("Login failed", error);
+    }finally {
+      setLoading(false); // Stop loading once data is fetched
     }
   };
 

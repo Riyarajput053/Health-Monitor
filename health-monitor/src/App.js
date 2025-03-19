@@ -48,10 +48,10 @@ const App = () => {
 
   return (
     <AuthProvider>
+      <Navbar />
       <LoadingSpinner />
       {loading ? null : (
         <>
-          <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />

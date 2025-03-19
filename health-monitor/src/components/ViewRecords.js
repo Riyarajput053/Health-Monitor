@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; import { useLoading } from "../context/LoadingContext";
+
 
 
 const ViewRecords = () => {
     const [reports, setReports] = useState([]);
+    const { loading, setLoading } = useLoading(true);
+
     const navigate = useNavigate();
     const API_URL = process.env.REACT_APP_API_URL;
 
 
 
     useEffect(() => {
+        setLoading(true);
         const fetchReports = async () => {
             try {
                 const token = localStorage.getItem("token"); // 🔹 Get token from localStorage
@@ -42,6 +46,8 @@ const ViewRecords = () => {
             } catch (err) {
                 console.error("Error fetching Lab reports:", err);
                 setReports([]);
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -53,6 +59,7 @@ const ViewRecords = () => {
     }
 
     const handleDelete = async (id) => {
+        setLoading(true);
         const confirmDelete = window.confirm("Are you sure you want to delete this report?");
         if (!confirmDelete) return;
 
@@ -81,6 +88,8 @@ const ViewRecords = () => {
             }
         } catch (error) {
             console.error("Error deleting report:", error);
+        } finally {
+            setLoading(false);
         }
     };
 

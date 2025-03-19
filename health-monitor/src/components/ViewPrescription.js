@@ -1,15 +1,20 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useLoading } from "../context/LoadingContext";
+
 
 
 const ViewPrescriptions = () => {
     const [prescription, setPrescription] = useState([]);
+    const { loading, setLoading } = useLoading(true);
+
     const navigate = useNavigate();
 
     const API_URL = process.env.REACT_APP_API_URL;
 
 
     useEffect(() => {
+        setLoading(true);
         const fetchPrescriptions = async () => {
             try {
                 const token = localStorage.getItem("token"); // 🔹 Get token from localStorage
@@ -42,6 +47,8 @@ const ViewPrescriptions = () => {
             } catch (err) {
                 console.error("Error fetching prescriptions:", err);
                 setPrescription([]);
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -53,6 +60,7 @@ const ViewPrescriptions = () => {
     }
 
     const handleDelete = async (id) => {
+        setLoading(true);
         const confirmDelete = window.confirm("Are you sure you want to delete this prescription?");
         if (!confirmDelete) return;
 
@@ -81,6 +89,8 @@ const ViewPrescriptions = () => {
             }
         } catch (error) {
             console.error("Error deleting prescription:", error);
+        } finally {
+            setLoading(false);
         }
     };
 

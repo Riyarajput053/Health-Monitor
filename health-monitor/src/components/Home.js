@@ -5,15 +5,24 @@ import axios from 'axios';
 import HomeSections from './Functions/HomeSections';
 import Footer from './Functions/Footer';
 import { useEffect } from 'react';
+import { useLoading } from "../context/LoadingContext";
+
 const Home = () => {
     const [authUser, setAuthUser] = useState("false");
     const [showLoginOptions, setShowLoginOptions] = useState(false);
     const [showRegisterOptions, setShowRegisterOptions] = useState(false);
+    const { loading, setLoading } = useLoading();
+
 
     useEffect(()=>{
       window.scrollTo(0,0);
     },[])
 
+    useEffect(() => {
+      setLoading(true);
+      setTimeout(() => setLoading(false), 2000); 
+    }, []);
+  
    
 
     return (

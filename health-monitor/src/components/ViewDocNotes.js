@@ -58,6 +58,7 @@ const ViewDocNotes = () => {
    
 
     const handleDelete = async (id) => {
+        useLoading(true);
         const confirmDelete = window.confirm("Are you sure you want to delete this Note?");
         if (!confirmDelete) return;
 
@@ -80,13 +81,15 @@ const ViewDocNotes = () => {
             console.log("Delete response:", data);
 
             if (response.ok) {
-                setNote(note.filter(note => note._id !== id)); // Update UI after deletion
+                setNote(note.filter(note => note._id !== id)); 
             } else {
                 console.error("Failed to delete note:", data.message);
             }
         } catch (error) {
             console.error("Error deleting note:", error);
-        }
+        }finally {
+            setLoading(false); 
+          }
     };
 
 

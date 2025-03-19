@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useLoading } from "../context/LoadingContext";
+
 
 
 const ViewVaccination = () => {
     const [vaccination, setVaccination] = useState([]);
+    const { loading, setLoading } = useLoading(true);
     const navigate = useNavigate();
     const API_URL = process.env.REACT_APP_API_URL;
 
 
 
     useEffect(() => {
+        setLoading(true);
         const fetchVaccination = async () => {
             try {
                 const token = localStorage.getItem("token"); // 🔹 Get token from localStorage
@@ -42,15 +46,18 @@ const ViewVaccination = () => {
             } catch (err) {
                 console.error("Error fetching notes:", err);
                 setVaccination([]);
+            } finally {
+                setLoading(false);
             }
         };
 
         fetchVaccination();
     }, []);
 
-   
+
 
     const handleDelete = async (id) => {
+        setLoading(true);
         const confirmDelete = window.confirm("Are you sure you want to delete this vaccination report?");
         if (!confirmDelete) return;
 
@@ -79,6 +86,8 @@ const ViewVaccination = () => {
             }
         } catch (error) {
             console.error("Error deleting vaccination report:", error);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -97,7 +106,7 @@ const ViewVaccination = () => {
                             <p className="mt-2"><strong>Validation Date:</strong> {vaccination.valDate}</p>
                             {vaccination.condition && <p><strong>Condition:</strong> {vaccination.condition}</p>}
                             <div >
-                                
+
                                 <button id="button" variant="danger" onClick={() => handleDelete(vaccination._id)}>
                                     Delete
                                 </button>

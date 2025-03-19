@@ -1,15 +1,21 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useLoading } from "../context/LoadingContext";
+
 
 
 const ViewImaging = () => {
     const [image, setImage] = useState([]);
+    const { loading, setLoading } = useLoading(true);
+
     const navigate = useNavigate();
     const API_URL = process.env.REACT_APP_API_URL;
 
 
 
     useEffect(() => {
+        setLoading(true);
+
         const fetchImages = async () => {
             try {
                 const token = localStorage.getItem("token"); // 🔹 Get token from localStorage
@@ -42,6 +48,8 @@ const ViewImaging = () => {
             } catch (err) {
                 console.error("Error fetching image:", err);
                 setImage([]);
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -53,6 +61,8 @@ const ViewImaging = () => {
     }
 
     const handleDelete = async (id) => {
+        setLoading(true);
+
         const confirmDelete = window.confirm("Are you sure you want to delete this Image?");
         if (!confirmDelete) return;
 
@@ -81,6 +91,8 @@ const ViewImaging = () => {
             }
         } catch (error) {
             console.error("Error deleting image:", error);
+        } finally {
+            setLoading(false);
         }
     };
 

@@ -22,7 +22,7 @@ const FeatureCard = ({ image, title, points }) => (
       </div>
       <div className="col-md-8 col-12 p-3">
         <div className="card-body text-md-start text-center">
-          <h4 className="text" style={{color:"#008B8B"}} >{title}</h4>
+          <h4 className="text" style={{ color: "#008B8B" }} >{title}</h4>
           {points.map((point, index) => (
             <h6 key={index} className="d-flex align-items-center">
               <FontAwesomeIcon icon={faCheck} className="text-success me-2" />
@@ -36,6 +36,12 @@ const FeatureCard = ({ image, title, points }) => (
 );
 
 const Features = () => {
+  const { loading, setLoading } = useLoading();
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => setLoading(false), 2000);
+  }, []);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -70,7 +76,7 @@ const Features = () => {
 
   return (
     <div className="container-fluid py-5 text-center">
-      <h1 className="fw-bold mb-3" style={{color:"#008B8B"}}> 
+      <h1 className="fw-bold mb-3" style={{ color: "#008B8B" }}>
         One App, <br /> Complete Health Empowerment
       </h1>
       <p className="lead text-muted mb-4">

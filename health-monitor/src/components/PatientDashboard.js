@@ -8,7 +8,16 @@ import history from "../images/history.png";
 import analysis from "../images/analysis.png";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useLoading } from "../context/LoadingContext";
+
 const PatientDashboard = ({ authUser }) => {
+  const { loading, setLoading } = useLoading();
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => setLoading(false), 2000); 
+  }, []);
+
   return (
     <div>
      

@@ -49,157 +49,155 @@ const App = () => {
   return (
     <AuthProvider>
       <LoadingSpinner />
-      {!loading && (
-        <>
-          <Navbar />
 
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register-patient" element={<Register />} />
-            <Route path="/patient-info" element={<PatientInfo />} />
+      <Navbar />
 
-            {/* Protected Routes */}
-            <Route
-              path="/patient-dashboard"
-              element={
-                <ProtectedRoute allowedRoles={["patient"]}>
-                  <PatientDashboard />
-                </ProtectedRoute>
-              }
-            />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register-patient" element={<Register />} />
+        <Route path="/patient-info" element={<PatientInfo />} />
+
+        {/* Protected Routes */}
+        <Route
+          path="/patient-dashboard"
+          element={
+            <ProtectedRoute allowedRoles={["patient"]}>
+              <PatientDashboard />
+            </ProtectedRoute>
+          }
+        />
 
 
-            <Route
-              path="/addrecords"
-              element={
-                <ProtectedRoute allowedRoles={["patient"]}>
-                  <AddRecords />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/addprescriptions"
-              element={
-                <ProtectedRoute allowedRoles={["patient"]}>
-                  <AddPrescriptions />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/adddocnotes"
-              element={
-                <ProtectedRoute allowedRoles={["patient"]}>
-                  <AddDocNotes />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/addimaging"
-              element={
-                <ProtectedRoute allowedRoles={["patient"]}>
-                  <AddImaging />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/addmedexpense"
-              element={
-                <ProtectedRoute allowedRoles={["patient"]}>
-                  <AddMedExpense />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/addvaccination"
-              element={
-                <ProtectedRoute allowedRoles={["patient"]}>
-                  <AddVaccination />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/viewrecords"
-              element={
-                <ProtectedRoute allowedRoles={["patient"]}>
-                  <ViewRecords />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/viewprescriptions"
-              element={
-                <ProtectedRoute allowedRoles={["patient"]}>
-                  <ViewPrescription />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/viewvaccination"
-              element={
-                <ProtectedRoute allowedRoles={["patient"]}>
-                  <ViewVaccination />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/viewdocnotes"
-              element={
-                <ProtectedRoute allowedRoles={["patient"]}>
-                  <ViewDocNotes />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/viewimaging"
-              element={
-                <ProtectedRoute allowedRoles={["patient"]}>
-                  <ViewImaging />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/viewmedexpense"
-              element={
-                <ProtectedRoute allowedRoles={["patient"]}>
-                  <ViewMedExpense />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/prediction"
-              element={
-                <ProtectedRoute allowedRoles={["patient"]}>
-                  <Prediction />
-                </ProtectedRoute>
-              }
-            />
+        <Route
+          path="/addrecords"
+          element={
+            <ProtectedRoute allowedRoles={["patient"]}>
+              <AddRecords />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/addprescriptions"
+          element={
+            <ProtectedRoute allowedRoles={["patient"]}>
+              <AddPrescriptions />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/adddocnotes"
+          element={
+            <ProtectedRoute allowedRoles={["patient"]}>
+              <AddDocNotes />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/addimaging"
+          element={
+            <ProtectedRoute allowedRoles={["patient"]}>
+              <AddImaging />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/addmedexpense"
+          element={
+            <ProtectedRoute allowedRoles={["patient"]}>
+              <AddMedExpense />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/addvaccination"
+          element={
+            <ProtectedRoute allowedRoles={["patient"]}>
+              <AddVaccination />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/viewrecords"
+          element={
+            <ProtectedRoute allowedRoles={["patient"]}>
+              <ViewRecords />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/viewprescriptions"
+          element={
+            <ProtectedRoute allowedRoles={["patient"]}>
+              <ViewPrescription />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/viewvaccination"
+          element={
+            <ProtectedRoute allowedRoles={["patient"]}>
+              <ViewVaccination />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/viewdocnotes"
+          element={
+            <ProtectedRoute allowedRoles={["patient"]}>
+              <ViewDocNotes />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/viewimaging"
+          element={
+            <ProtectedRoute allowedRoles={["patient"]}>
+              <ViewImaging />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/viewmedexpense"
+          element={
+            <ProtectedRoute allowedRoles={["patient"]}>
+              <ViewMedExpense />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/prediction"
+          element={
+            <ProtectedRoute allowedRoles={["patient"]}>
+              <Prediction />
+            </ProtectedRoute>
+          }
+        />
 
-            <Route
-              path="/settings"
-              element={
-                <ProtectedRoute allowedRoles={["patient"]}>
-                  <Edit />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/footer"
-              element={
-                <ProtectedRoute allowedRoles={["patient"]}>
-                  <Footer />
-                </ProtectedRoute>
-              }
-            />
+        <Route
+          path="/settings"
+          element={
+            <ProtectedRoute allowedRoles={["patient"]}>
+              <Edit />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/footer"
+          element={
+            <ProtectedRoute allowedRoles={["patient"]}>
+              <Footer />
+            </ProtectedRoute>
+          }
+        />
 
-            {/* Other Routes */}
-            <Route path="/about" element={<About />} />
-            <Route path="/howitworks" element={<HowItWorks />} />
-            <Route path="/features" element={<Features />} />
-            <Route path="/image" element={<Image />} />
-          </Routes>
-        </>
-      )}
+        {/* Other Routes */}
+        <Route path="/about" element={<About />} />
+        <Route path="/howitworks" element={<HowItWorks />} />
+        <Route path="/features" element={<Features />} />
+        <Route path="/image" element={<Image />} />
+      </Routes>
+
     </AuthProvider>
   );
 };

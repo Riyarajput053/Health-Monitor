@@ -15,12 +15,12 @@ const PatientDashboard = ({ authUser }) => {
 
   useEffect(() => {
     setLoading(true);
-    setTimeout(() => setLoading(false), 2000); 
+    setTimeout(() => setLoading(false), 2000);
   }, []);
 
   return (
     <div>
-     
+
       {/* <div> */}
       {/* <h3>Followed Doctors:</h3>
         <ul>
@@ -32,6 +32,7 @@ const PatientDashboard = ({ authUser }) => {
 
       <div
         style={{
+          flexWrap: wrap,
           flexDirection: "column",
           display: "flex",
           height: "715px",
@@ -54,6 +55,7 @@ const PatientDashboard = ({ authUser }) => {
                   className="card"
                   style={{
                     minHeight: "10rem",
+                    maxWidth: "20rem",
                     borderRadius: "25px",
                     backgroundColor: "#EEEEEE",
                     cursor: "pointer",
@@ -72,7 +74,7 @@ const PatientDashboard = ({ authUser }) => {
                 <div
                   className="card mt-5"
                   style={{
-                    maxWidth: "15rem",
+                    maxWidth: "20rem",
                     minHeight: "10rem",
                     minWidth: "15rem",
                     borderRadius: "25px",
@@ -94,7 +96,7 @@ const PatientDashboard = ({ authUser }) => {
                 <div
                   className="card"
                   style={{
-                    maxWidth: "15rem",
+                    maxWidth: "20rem",
                     minHeight: "10rem",
                     minWidth: "15rem",
                     borderRadius: "25px",
@@ -114,7 +116,7 @@ const PatientDashboard = ({ authUser }) => {
                 <div
                   className="card mt-5"
                   style={{
-                    maxWidth: "15rem",
+                    maxWidth: "20rem",
                     minHeight: "10rem",
                     minWidth: "15rem",
                     borderRadius: "25px",
@@ -137,7 +139,7 @@ const PatientDashboard = ({ authUser }) => {
                 <div
                   className="card"
                   style={{
-                    maxWidth: "15rem",
+                    maxWidth: "20rem",
                     minHeight: "10rem",
                     minWidth: "15rem",
                     borderRadius: "25px",
@@ -157,7 +159,7 @@ const PatientDashboard = ({ authUser }) => {
                 <div
                   className="card mt-5"
                   style={{
-                    maxWidth: "15rem",
+                    maxWidth: "20rem",
                     minHeight: "10rem",
                     minWidth: "15rem",
                     borderRadius: "25px",
@@ -179,7 +181,7 @@ const PatientDashboard = ({ authUser }) => {
             type="button"
             data-bs-toggle="modal"
             data-bs-target="#staticBackdrop"
-            style={{ width: "800px" , backgroundColor: "#008B8B"  }}
+            style={{ width: "800px", backgroundColor: "#008B8B" }}
           >
             {" "}
             + Add New Record

@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "./AuthProvider"; 
+import { AuthContext } from "./AuthProvider";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 function Navbar() {
   const { user, logout } = useContext(AuthContext);
@@ -52,22 +52,25 @@ function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-white" to="/about" onClick={() => document.getElementById("sidebarMenu").classList.remove("show")}>
-                  About
-                </Link>
                 <Link className="nav-link text-white" to="/howitworks" onClick={() => document.getElementById("sidebarMenu").classList.remove("show")}>
                   How It Works
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link text-white" to="/about" onClick={() => document.getElementById("sidebarMenu").classList.remove("show")}>
+                  About
+                </Link>
+
+              </li>
               {user ? (
                 <li className="nav-item">
-                  <button 
-                    className="nav-link text-white btn btn-link" 
-                    onClick={() => { 
+                  <button
+                    className="nav-link text-white btn btn-link"
+                    onClick={() => {
                       document.getElementById("sidebarMenu").classList.remove("show");
                       logout();
                       navigate('/login')
-                      
+
                     }}
                   >
                     Logout

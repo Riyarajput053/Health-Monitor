@@ -211,7 +211,7 @@ const PatientDashboard = ({ authUser }) => {
                           width: "9rem",
                           height: "6rem",
                           borderRadius: "25px",
-                          minWidth: "100px", // ✅ Prevents the card from becoming too narrow
+                          minWidth: "200px", // ✅ Prevents the card from becoming too narrow
                           padding: "1rem",
 
                           cursor: "pointer",
@@ -233,7 +233,7 @@ const PatientDashboard = ({ authUser }) => {
                           width: "9rem",
                           height: "6rem",
                           borderRadius: "25px",
-                          minWidth: "100px", 
+                          minWidth: "150px", 
                           padding: "1rem",
                           cursor: "pointer",
                         }}
@@ -254,7 +254,7 @@ const PatientDashboard = ({ authUser }) => {
                           width: "9rem",
                           height: "6rem",
                           borderRadius: "25px",
-                          minWidth: "100px", 
+                          minWidth: "150px", 
                           padding: "1rem",
                           cursor: "pointer",
                         }}
@@ -278,7 +278,7 @@ const PatientDashboard = ({ authUser }) => {
                           width: "9rem",
                           height: "6rem",
                           borderRadius: "25px",
-                          minWidth: "100px", 
+                          minWidth: "150px", 
                           padding: "1rem",
                           cursor: "pointer",
                         }}
@@ -299,7 +299,7 @@ const PatientDashboard = ({ authUser }) => {
                           width: "9rem",
                           height: "6rem",
                           borderRadius: "25px",
-                          minWidth: "100px", 
+                          minWidth: "150px", 
                           padding: "1rem",
                           cursor: "pointer",
                         }}
@@ -320,7 +320,7 @@ const PatientDashboard = ({ authUser }) => {
                           width: "9rem",
                           height: "6rem",
                           borderRadius: "25px",
-                          minWidth: "100px", 
+                          minWidth: "150px", 
                           padding: "1rem",
                           cursor: "pointer",
                         }}
@@ -354,7 +354,7 @@ const PatientDashboard = ({ authUser }) => {
               <div
                 className="card w-100 rounded-4 bg-light "
                 style={{
-                  maxHeight: "10rem",
+                  // minHeight: "10rem",
                   // width: "20rem",
                   // borderRadius: "25px",
                   // backgroundColor: "#EEEEEE",
@@ -388,7 +388,7 @@ const PatientDashboard = ({ authUser }) => {
               <div
                 className="card w-100 rounded-4 bg-light mt-3 "
                 style={{
-                  maxHeight: "10rem",
+                  // maxHeight: "10rem",
                   // width: "20rem",
                   // borderRadius: "25px",
                   // backgroundColor: "#EEEEEE",

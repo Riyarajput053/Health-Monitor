@@ -48,10 +48,11 @@ const App = () => {
 
   return (
     <AuthProvider>
-      <Navbar />
       <LoadingSpinner />
-      {loading ? null : (
+      {!loading && (
         <>
+          <Navbar />
+
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
@@ -197,10 +198,8 @@ const App = () => {
             <Route path="/features" element={<Features />} />
             <Route path="/image" element={<Image />} />
           </Routes>
-
         </>
       )}
-
     </AuthProvider>
   );
 };

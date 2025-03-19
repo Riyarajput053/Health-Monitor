@@ -1,4 +1,4 @@
-import { ClipLoader } from "react-spinners";
+import { Spinner } from "react-bootstrap";
 import { useLoading } from "../../context/LoadingContext";
 
 const LoadingSpinner = () => {
@@ -7,9 +7,9 @@ const LoadingSpinner = () => {
   if (!loading) return null;
 
   return (
-    <div className="fixed inset-0 flex justify-center items-center bg-white bg-opacity-50 z-50">
-      <ClipLoader size={50} color={"#123abc"} loading={loading} />
-    </div>
+    <div className="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center bg-white bg-opacity-75" style={{ zIndex: 1050 }}>
+    <Spinner animation="border" variant="primary" />
+  </div>
   );
 };
 
